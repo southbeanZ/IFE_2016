@@ -1,0 +1,91 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.clearFloat {
+	overflow: auto;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+/*边框、背景、边距*/
+.main, .box, img {
+	border: 1px solid #999;
+}
+
+.box, img {
+	margin: 10px;
+}
+
+.box {
+	background: #ffffff;
+	padding: 10px;
+}
+
+img {
+	width: 80px;
+	height: 80px;
+	vertical-align: top;
+}
+
+figcaption {
+	display: inline;
+	font-size: 16px;
+}
+
+/*主面板*/
+.main {
+	background: #eee;
+	margin: 20px;
+	padding: 10px 180px 10px 260px;
+	min-width: 500px;
+}
+
+/*左栏*/
+.left {
+	width: 160px;
+	padding: 20px;
+	margin-left: -240px;
+}
+
+.left img {
+	margin: 0;
+}
+
+/*中栏*/
+.middle {
+	width: 100%;
+	padding: 20px;
+	margin-left: -20px;
+}
+
+dt {
+	font-weight: bold;	
+}
+
+dt::after {
+	content: ":";
+}
+
+dd {
+	padding-bottom: 10px;
+}
+
+dd>ul {
+	list-style: none;
+}
+
+/*右栏*/
+.right {
+	padding: 10px;
+	width: 100px;
+	margin-right: -180px;
+}
+
