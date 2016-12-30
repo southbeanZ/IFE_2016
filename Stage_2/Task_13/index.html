@@ -28,7 +28,7 @@
   //检测输入是否为合法数字
   function handler() {
     var inputVar = input.value;
-    if(/^[0-9]+/.test(inputVar)) {
+    if(/^[0-9]+$/.test(inputVar)) {
       inputVar = parseFloat(inputVar);
     } else {
       alert("请输入有效数字!");
