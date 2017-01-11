@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.clearfix {
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+.row {
+	padding: 0 10px;
+	@extend .clearfix;
+}
+
+p {
+	border: 1px solid #999;
+	background: #eee;
+	padding-left: 10px;
+	line-height: 50px;
+	height: 50px;
+}
+
+%col {
+	float: left;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+$cases: md, lg;
+@each $case in $cases {
+	@for $i from 1 through 12 {
+		.col-#{$case}-#{$i} {
+			@extend %col;
+		}
+	}
+}
+
+@mixin generateGrid($case) {
+	@for $i from 1 through 12 {
+		.col-#{$case}-#{$i} {
+			width: 100% / 12 * $i;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	@include generateGrid(lg);
+}
+
+@media (max-width: 768px) {
+	@include generateGrid(md);
+}

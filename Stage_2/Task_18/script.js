@@ -85,7 +85,7 @@ function dataProcess(value) {
 function initEventListener() {
 	var btnGroup = document.getElementById("btnGroup");
 	addEventHandler(btnGroup, "click", function(event) {
-		var curVal = document.getElementById("num").value;
+		var curVal = document.getElementById("num").value.trim();
 		var tNode = event.target.id;
 
 		if(tNode == "pushLeft") {
