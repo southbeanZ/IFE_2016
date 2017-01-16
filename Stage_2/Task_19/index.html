@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 19</title>
+	<style>
+		#queue {
+			margin: 20px;
+		}
+
+		.ele {
+			display: inline-block;
+			background: red;
+			color: white;
+			width: 10px;
+			margin: 2px;
+			border: 1px solid #000;
+			text-align: center;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" name="num" id="num">
+	<div id="btnGroup">
+		<button id="pushLeft">左侧入</button>
+		<button id="pushRight">右侧入</button>
+		<button id="popLeft">左侧出</button>
+		<button id="popRight">右侧出</button>
+		<button id="sort">排序</button>
+	</div>
+	<div id="queue"></div>
+	
+	<script src="script.js"></script>
+</body>
+</html>

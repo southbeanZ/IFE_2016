@@ -47,7 +47,7 @@ function popLeft() {
 	if(queue.childElementCount == 0) {
 		alert("队列为空！");
 	} else {
-		alert(queue.firstChild.innerHTML);
+		alert(queue.firstChild.getAttribute("data"));
 		queue.removeChild(queue.firstChild);
 	}
 }
@@ -59,7 +59,7 @@ function popRight() {
 	if(queue.childElementCount == 0) {
 		alert("队列为空！");
 	} else {
-		alert(queue.lastChild.innerHTML);
+		alert(queue.lastChild.getAttribute("data"));
 		queue.removeChild(queue.lastChild);
 	}
 }
@@ -68,17 +68,51 @@ function popRight() {
  * 输入校验与数值处理
  */
 function dataProcess(value) {
+	if(queue.childElementCount > 59) {
+		alert("队列元素已有60个！");
+		return null;
+	}
+
 	if(!/\d/.test(value)) {
 		alert("输入必须是数字！");
 		return null;
 	}
 
+	var inputVal = parseInt(value);
+	if(inputVal < 10 || inputVal > 100) {
+		alert("输入数字必须在10-100！");
+		return null;
+	}
+
 	var node = document.createElement("div");
 	node.setAttribute("class", "ele");
-	node.innerHTML = parseInt(value);
+	node.setAttribute("style", "height: " + inputVal + "px;");
 	return node;
 }
 
+/**
+ * 插入排序
+ */
+function insertSort() {
+	var childs = queue.querySelectorAll(".ele");
+	var len = childs.length;
+	var i = 1;
+	var sorter = setInterval(function(){
+		if(i < len) {
+			var temp = childs[i].style.height;
+			var j = i - 1 ;	
+			while((j >= 0) && (temp < childs[j].style.height) ) {
+				childs[j + 1].style.height = childs[j].style.height;
+				j--;
+			}
+			childs[j + 1].style.height = temp;
+			i++;
+		} else {
+			clearInterval(sorter);
+		}
+	}, 100);
+}
+ 
 /**
  * 初始化事件监听
  */
@@ -96,6 +130,8 @@ function initEventListener() {
 			popLeft();
 		} else if(tNode == "popRight") {
 			popRight();
+		} else if(tNode == "sort") {
+			insertSort();
 		}
 	});
 
